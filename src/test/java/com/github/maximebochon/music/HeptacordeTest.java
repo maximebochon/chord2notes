@@ -16,8 +16,8 @@ public class HeptacordeTest {
     @Test
     public void douzeDemiTonsDansUneOctave()
     {
-        final int exptected = 12;
-        assertEquals(exptected, Heptacorde.DEMI_TONS_OCTAVE);
+        final int expected = 12;
+        assertEquals(expected, Heptacorde.DEMI_TONS_OCTAVE);
     }
 
     @Test

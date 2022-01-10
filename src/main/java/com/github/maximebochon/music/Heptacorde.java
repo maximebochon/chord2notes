@@ -12,7 +12,7 @@ public enum Heptacorde {
     LA(2, 'A'),
     SI(1, 'B');
 
-    public final static int DEMI_TONS_OCTAVE = stream(Heptacorde.values())
+    public static final int DEMI_TONS_OCTAVE = stream(Heptacorde.values())
             .map(Heptacorde::getDemiTonsVersSuivant)
             .reduce(INTEGER_ZERO, Integer::sum);
 
