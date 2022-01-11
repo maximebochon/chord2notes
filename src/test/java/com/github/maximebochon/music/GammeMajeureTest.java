@@ -6,57 +6,69 @@ import org.slf4j.LoggerFactory;
 
 import static com.github.maximebochon.music.Altération.*;
 import static com.github.maximebochon.music.Heptacorde.*;
+import static org.junit.Assert.assertEquals;
 
 public class GammeMajeureTest {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(GammeMajeureTest.class);
 
+    private void testerGammeMajeure(final Note tonique, String expectedGamme) {
+        final GammeMajeure gamme = new GammeMajeure(tonique);
+        expectedGamme = expectedGamme
+                .replace("##", DOUBLE_DIÈSE.getSymbole())
+                .replace("#", DIÈSE.getSymbole())
+                .replace("b", BÉMOL.getSymbole())
+                .replace("bb", DOUBLE_BÉMOL.getSymbole());
+        assertEquals(expectedGamme, gamme.getNotes().toString());
+    }
+
     @Test
     public void doMajeur() {
-        final Note tonique = new Note(DO);
-        final GammeMajeure gamme = new GammeMajeure(tonique);
-        LOGGER.debug("{}", gamme);
+        testerGammeMajeure(new Note(DO), "[DO, RÉ, MI, FA, SOL, LA, SI]");
     }
 
     @Test
     public void doDièseMajeur() {
-        final Note tonique = new Note(DO, DIÈSE);
-        final GammeMajeure gamme = new GammeMajeure(tonique);
-        LOGGER.debug("{}", gamme);
+        testerGammeMajeure(new Note(DO, DIÈSE), "[DO#, RÉ#, MI#, FA#, SOL#, LA#, SI#]");
     }
 
     @Test
-    public void solDièseMajeur() {
-        final Note tonique = new Note(SOL, DIÈSE);
-        final GammeMajeure gamme = new GammeMajeure(tonique);
-        LOGGER.debug("{}", gamme);
+    public void réMajeur() {
+        testerGammeMajeure(new Note(RÉ), "[RÉ, MI, FA#, SOL, LA, SI, DO#]");
+    }
+
+    @Test
+    public void miBémolMajeur() {
+        testerGammeMajeure(new Note(MI, BÉMOL), "[MIb, FA, SOL, LAb, SIb, DO, RÉ]");
     }
 
     @Test
     public void faMajeur() {
-        final Note tonique = new Note(FA, NATUREL);
-        final GammeMajeure gamme = new GammeMajeure(tonique);
-        LOGGER.debug("{}", gamme);
+        testerGammeMajeure(new Note(FA), "[FA, SOL, LA, SIb, DO, RÉ, MI]");
     }
 
     @Test
     public void solMajeur() {
-        final Note tonique = new Note(SOL, NATUREL);
-        final GammeMajeure gamme = new GammeMajeure(tonique);
-        LOGGER.debug("{}", gamme);
+        testerGammeMajeure(new Note(SOL), "[SOL, LA, SI, DO, RÉ, MI, FA#]");
     }
 
     @Test
-    public void laMajeur() {
-        final Note tonique = new Note(LA, NATUREL);
-        final GammeMajeure gamme = new GammeMajeure(tonique);
-        LOGGER.debug("{}", gamme);
+    public void solDièseMajeur() {
+        testerGammeMajeure(new Note(SOL, DIÈSE), "[SOL#, LA#, SI#, DO#, RÉ#, MI#, FA##]");
     }
 
     @Test
     public void laBémolMajeur() {
-        final Note tonique = new Note(LA, BÉMOL);
-        final GammeMajeure gamme = new GammeMajeure(tonique);
-        LOGGER.debug("{}", gamme);
+        testerGammeMajeure(new Note(LA, BÉMOL), "[LAb, SIb, DO, RÉb, MIb, FA, SOL]");
+    }
+
+    @Test
+    public void laMajeur() {
+        testerGammeMajeure(new Note(LA), "[LA, SI, DO#, RÉ, MI, FA#, SOL#]");
+    }
+
+    @Test
+    public void laDièseMajeur() {
+        testerGammeMajeure(new Note(LA, DIÈSE), "[LA#, SI#, DO##, RÉ#, MI#, FA##, SOL##]");
     }
 }
