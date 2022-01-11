@@ -1,5 +1,7 @@
 package com.github.maximebochon.music;
 
+import com.google.common.base.Objects;
+
 import static com.github.maximebochon.music.Altération.NATUREL;
 
 public class Note {
@@ -18,6 +20,19 @@ public class Note {
     public Note(final Heptacorde heptacorde, final Altération altération) {
         this.heptacorde = heptacorde;
         this.altération = altération;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Note note = (Note) o;
+        return heptacorde == note.heptacorde && altération == note.altération;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(heptacorde, altération);
     }
 
     @Override
