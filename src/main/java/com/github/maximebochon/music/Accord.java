@@ -3,13 +3,8 @@ package com.github.maximebochon.music;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import static com.github.maximebochon.music.Altération.BÉMOL;
-import static com.github.maximebochon.music.Heptacorde.DO;
-import static com.github.maximebochon.music.Intervalle.I;
-import static java.util.Arrays.asList;
 import static java.util.Collections.unmodifiableList;
 import static java.util.stream.Collectors.toList;
 
