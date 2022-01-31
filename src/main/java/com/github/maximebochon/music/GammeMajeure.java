@@ -6,8 +6,9 @@ import org.slf4j.LoggerFactory;
 import java.util.ArrayList;
 import java.util.List;
 
-
 import static java.util.Collections.unmodifiableList;
+import static org.apache.commons.lang3.math.NumberUtils.INTEGER_ONE;
+import static org.apache.commons.lang3.math.NumberUtils.INTEGER_ZERO;
 
 public class GammeMajeure {
 
@@ -54,11 +55,18 @@ public class GammeMajeure {
         return notes;
     }
 
+    public boolean isPraticable() {
+        return notes.stream()
+           .filter(note -> Math.abs(note.altération.getDemiTons()) > INTEGER_ONE)
+           .count() == INTEGER_ZERO;
+    }
+
     @Override
     public String toString() {
         return "GammeMajeure{" +
-                "tonique=" + tonique +
-                ", notes=" + notes +
-                '}';
+               "tonique=" + tonique +
+               ", notes=" + notes +
+               ", praticable=" + isPraticable() +
+               '}';
     }
 }
