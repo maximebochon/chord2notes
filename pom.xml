@@ -10,8 +10,8 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <maven.compiler.source>11</maven.compiler.source>
-    <maven.compiler.target>11</maven.compiler.target>
+    <maven.compiler.source>15</maven.compiler.source>
+    <maven.compiler.target>15</maven.compiler.target>
     <dependency.slf4j.version>1.7.32</dependency.slf4j.version>
     <dependency.guava.version>31.0.1-jre</dependency.guava.version>
     <dependency.commons-lang3.version>3.12.0</dependency.commons-lang3.version>
