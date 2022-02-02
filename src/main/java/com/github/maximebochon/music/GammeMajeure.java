@@ -55,6 +55,8 @@ public class GammeMajeure {
         return notes;
     }
 
+    public Note getTonique() { return tonique; }
+
     public boolean isPraticable() {
         return notes.stream()
            .filter(note -> Math.abs(note.altération.getDemiTons()) > INTEGER_ONE)

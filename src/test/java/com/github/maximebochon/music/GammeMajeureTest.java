@@ -11,6 +11,8 @@ public class GammeMajeureTest {
     private void testerGammeMajeure(final Note tonique, String expectedGamme, final boolean praticable) {
         final GammeMajeure gamme = new GammeMajeure(tonique);
 
+        assertEquals(tonique, gamme.getTonique());
+
         expectedGamme = expectedGamme
                 .replace("##", DOUBLE_DIÈSE.getSymbole())
                 .replace("#", DIÈSE.getSymbole())
