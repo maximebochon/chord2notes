@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="fr-FR">
+<head>
+    <meta charset="utf-8">
+    <meta name="author" content="Maxime BOCHON">
+    <title>Gammes majeures calculées</title>
+    <style type="text/css">
+        table, tr, th, td {
+            border-collapse: collapse;
+        }
+        th, td {
+            text-align: center;
+            padding: 0.5em;
+        }
+        tr td:first-child {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+<h1>Gammes Majeures calculées :</h1>
+
+<table border="1">
+    <thead>
+    <tr>
+        <th>Tonique</th>
+        <th colspan="7">Notes</th>
+        <th>Praticable</th>
+    </tr>
+    </thead>
+    <tbody>
+    {{#gammes}}
+    <tr>
+        <td>{{tonique}}</td>
+        {{#notes}}
+        <td>{{.}}</td>
+        {{/notes}}
+        <td>
+            {{#praticable}}oui{{/praticable}}
+            {{^praticable}}non{{/praticable}}
+        </td>
+    </tr>
+    {{/gammes}}
+    </tbody>
+</table>
+</body>
+</html>
