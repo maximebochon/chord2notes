@@ -7,10 +7,10 @@ import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -35,11 +35,10 @@ public class Actions {
 
         final String template = "gammes.mustache";
         final Mustache mustache = (new DefaultMustacheFactory()).compile(template);
-        final Map<String, Object> context = new HashMap<>();
-        context.put("gammes", gammes);
+
         mustache.execute(
-                new PrintWriter(System.out),
-                context
+                new PrintWriter(new FileWriter("DRAFT.html")),
+                Map.of("gammes", gammes)
         ).flush();
     }
 }
