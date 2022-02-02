@@ -48,3 +48,7 @@ buildNumber.properties
 ### Draft files
 DRAFT
 DRAFT.*
+src/test/java/draft/*
+src/test/java/draft/**/*
+src/main/java/draft/*
+src/main/java/draft/**/*
