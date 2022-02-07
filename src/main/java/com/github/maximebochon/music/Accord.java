@@ -5,8 +5,7 @@ import org.slf4j.LoggerFactory;
 
 import java.util.List;
 
-import static java.util.Collections.unmodifiableList;
-import static java.util.stream.Collectors.toList;
+import static java.util.stream.Collectors.toUnmodifiableList;
 
 public class Accord {
 
@@ -18,7 +17,7 @@ public class Accord {
         LOGGER.debug("Construction Accord : tonique={} intervalles={}", tonique, intervalles);
 
         final List<Note> gamme = new GammeMajeure(tonique).getNotes();
-        final List<Note> noteList = intervalles.stream()
+        this.notes = intervalles.stream()
                 .map(intervalle -> {
                     final int index = (intervalle.getPosition() - 1) % gamme.size();
                     final Note note = gamme.get(index);
@@ -26,8 +25,7 @@ public class Accord {
                             note.altération.getDemiTons() + intervalle.getAltération().getDemiTons()
                     );
                     return note;
-                }).collect(toList());
-        this.notes = unmodifiableList(noteList);
+                }).collect(toUnmodifiableList());
     }
 
     public List<Note> getNotes() {
