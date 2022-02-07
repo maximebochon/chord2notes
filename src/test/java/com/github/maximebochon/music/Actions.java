@@ -23,7 +23,7 @@ public class Actions {
     private static final Logger LOGGER = LoggerFactory.getLogger(Actions.class);
 
     @Test
-    public void afficherToutesLesGammes() throws IOException {
+    public void afficherToutesLesGammesMajeures() throws IOException {
         final List<GammeMajeure> gammes = Arrays.stream(Heptacorde.values())
                 .flatMap(h -> Arrays.stream(Altération.values())
                         .filter(a -> Math.abs(a.getDemiTons()) <= INTEGER_ONE)
@@ -37,7 +37,7 @@ public class Actions {
         final Mustache mustache = (new DefaultMustacheFactory()).compile(template);
 
         mustache.execute(
-                new PrintWriter(new FileWriter("DRAFT.html")),
+                new PrintWriter(new FileWriter("DRAFT.gammes.html")),
                 Map.of("gammes", gammes)
         ).flush();
     }
