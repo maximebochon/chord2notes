@@ -4,27 +4,18 @@ import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.List;
-
 import static com.github.maximebochon.music.Altération.*;
 import static com.github.maximebochon.music.Heptacorde.DO;
 import static com.github.maximebochon.music.Heptacorde.LA;
-import static com.github.maximebochon.music.Intervalle.I;
-import static java.util.Arrays.asList;
+import static com.github.maximebochon.music.NatureAccord.*;
 import static org.junit.Assert.assertEquals;
 
 public class AccordTest {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(AccordTest.class);
 
-    private static final List<Intervalle> MINEUR = asList(I(1), I(3, BÉMOL), I(5));
-    private static final List<Intervalle> MAJEUR = asList(I(1), I(3), I(5));
-    private static final List<Intervalle> SEPT = asList(I(1), I(3), I(5), I(7, BÉMOL));
-    private static final List<Intervalle> Δ = asList(I(1), I(3), I(5), I(7));
-    private static final List<Intervalle> Ø = asList(I(1), I(3, BÉMOL), I(5, BÉMOL), I(7, BÉMOL));
-
-    private void testerAccord(final Note tonique, final List<Intervalle> intervalles, String expectedAccord) {
-        final Accord accord = new Accord(tonique, intervalles);
+    private void testerAccord(final Note tonique, final NatureAccord nature, String expectedAccord) {
+        final Accord accord = new Accord(tonique, nature);
         expectedAccord = expectedAccord
                 .replace("##", DOUBLE_DIÈSE.getSymbole())
                 .replace("#", DIÈSE.getSymbole())
@@ -39,13 +30,8 @@ public class AccordTest {
     }
 
     @Test
-    public void accordDoMineur() {
-        testerAccord(new Note(DO), MINEUR, "[DO, MIb, SOL]");
-    }
-
-    @Test
-    public void accordDoSemiDiminué() {
-        testerAccord(new Note(DO), Ø, "[DO, MIb, SOLb, SIb]");
+    public void accordDoMajeurSept() {
+        testerAccord(new Note(DO), MAJEUR_SEPT, "[DO, MI, SOL, SI]");
     }
 
     @Test
@@ -54,8 +40,23 @@ public class AccordTest {
     }
 
     @Test
-    public void accordDoMajeurSept() {
-        testerAccord(new Note(DO), Δ, "[DO, MI, SOL, SI]");
+    public void accordDoMineur() {
+        testerAccord(new Note(DO), MINEUR, "[DO, MIb, SOL]");
+    }
+
+    @Test
+    public void accordDoMineurSept() {
+        testerAccord(new Note(DO), MINEUR_SEPT, "[DO, MIb, SOL, SIb]");
+    }
+
+    @Test
+    public void accordDoDiminué() {
+        testerAccord(new Note(DO), DIMINUÉ, "[DO, MIb, SOLb]");
+    }
+
+    @Test
+    public void accordDoSemiDiminué() {
+        testerAccord(new Note(DO), SEMI_DIMINUÉ, "[DO, MIb, SOLb, SIb]");
     }
 
     @Test
@@ -64,8 +65,33 @@ public class AccordTest {
     }
 
     @Test
+    public void accordLaMajeurSept() {
+        testerAccord(new Note(LA), MAJEUR_SEPT, "[LA, DO#, MI, SOL#]");
+    }
+
+    @Test
+    public void accordLaSept() {
+        testerAccord(new Note(LA), SEPT, "[LA, DO#, MI, SOL]");
+    }
+
+    @Test
     public void accordLaMineur() {
         testerAccord(new Note(LA), MINEUR, "[LA, DO, MI]");
+    }
+
+    @Test
+    public void accordLaMineurSept() {
+        testerAccord(new Note(LA), MINEUR_SEPT, "[LA, DO, MI, SOL]");
+    }
+
+    @Test
+    public void accordLaDiminué() {
+        testerAccord(new Note(LA), DIMINUÉ, "[LA, DO, MIb]");
+    }
+
+    @Test
+    public void accordLaSemiDiminué() {
+        testerAccord(new Note(LA), SEMI_DIMINUÉ, "[LA, DO, MIb, SOL]");
     }
 
 }
