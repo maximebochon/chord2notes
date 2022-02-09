@@ -27,13 +27,7 @@ public class Actions {
                 )
                 .collect(toUnmodifiableList());
 
-        final String template = "gammes.mustache";
-        final Mustache mustache = (new DefaultMustacheFactory()).compile(template);
-
-        mustache.execute(
-                new PrintWriter(new FileWriter("DRAFT.gammes.html")),
-                Map.of("gammes", gammes)
-        ).flush();
+        renderAsHtmlPage("gammes", Map.of("gammes", gammes));
     }
 
     @Test
@@ -50,12 +44,13 @@ public class Actions {
                 )
                 .collect(toUnmodifiableList());
 
-        final String template = "accords.mustache";
-        final Mustache mustache = (new DefaultMustacheFactory()).compile(template);
+        renderAsHtmlPage("accords", Map.of("accords", accords));
+    }
 
-        mustache.execute(
-                new PrintWriter(new FileWriter("DRAFT.accords.html")),
-                Map.of("accords", accords)
-        ).flush();
+    private void renderAsHtmlPage(final String name, final Map<String, Object> context) throws IOException {
+        final String template = name + ".mustache";
+        final Mustache engine = (new DefaultMustacheFactory()).compile(template);
+        final PrintWriter output = new PrintWriter(new FileWriter("docs/" + name + ".html"));
+        engine.execute(output, context).flush();
     }
 }
