@@ -21,9 +21,9 @@ public class Actions {
     @Test
     public void afficherToutesLesGammesMajeures() throws IOException {
         final List<GammeMajeure> gammes = Arrays.stream(Heptacorde.values())
-                .flatMap(h -> Arrays.stream(Altération.values())
-                        .filter(a -> Math.abs(a.getDemiTons()) <= INTEGER_ONE)
-                        .map(a -> new GammeMajeure(new Note(h, a)))
+                .flatMap(heptacorde -> Arrays.stream(Altération.values())
+                        .filter(altération -> Math.abs(altération.getDemiTons()) <= INTEGER_ONE)
+                        .map(altération -> new GammeMajeure(new Note(heptacorde, altération)))
                 )
                 .collect(toUnmodifiableList());
 
@@ -39,14 +39,14 @@ public class Actions {
     @Test
     public void afficherCertainsAccords() throws IOException {
         final List<Accord> accords = Arrays.stream(Heptacorde.values())
-                .flatMap(h -> Arrays.stream(Altération.values())
-                        .filter(a -> Math.abs(a.getDemiTons()) <= INTEGER_ONE)
-                        .map(a -> new GammeMajeure(new Note(h, a)))
+                .flatMap(heptacorde -> Arrays.stream(Altération.values())
+                        .filter(altération -> Math.abs(altération.getDemiTons()) <= INTEGER_ONE)
+                        .map(altération -> new GammeMajeure(new Note(heptacorde, altération)))
                 )
                 .filter(GammeMajeure::isPraticable)
                 .map(GammeMajeure::getTonique)
-                .flatMap(t -> Arrays.stream(NatureAccord.values())
-                        .map(n -> new Accord(t, n))
+                .flatMap(tonique -> Arrays.stream(NatureAccord.values())
+                        .map(nature -> new Accord(tonique, nature))
                 )
                 .collect(toUnmodifiableList());
 
