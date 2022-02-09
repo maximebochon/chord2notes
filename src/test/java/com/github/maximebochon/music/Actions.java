@@ -11,6 +11,7 @@ import java.io.PrintWriter;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Stream;
 
 import static java.util.stream.Collectors.toUnmodifiableList;
 import static org.apache.commons.lang3.math.NumberUtils.INTEGER_ONE;
@@ -27,7 +28,7 @@ public class Actions {
                 )
                 .collect(toUnmodifiableList());
 
-        renderAsHtmlPage("gammes", Map.of("gammes", gammes));
+        renderAsHtmlPage("gammes", "gammes", Map.of("gammes", gammes));
     }
 
     @Test
@@ -44,13 +45,29 @@ public class Actions {
                 )
                 .collect(toUnmodifiableList());
 
-        renderAsHtmlPage("accords", Map.of("accords", accords));
+        Stream.of(3, 4).forEach(taille -> {
+            final List<Accord> accordsNsons = accords.stream()
+                    .filter(accord -> accord.getNotes().size() == taille)
+                    .collect(toUnmodifiableList());
+
+            renderAsHtmlPage(
+                    "accords", "accords" + taille + "sons",
+                    Map.of("accords", accordsNsons, "taille", taille)
+            );
+        });
     }
 
-    private void renderAsHtmlPage(final String name, final Map<String, Object> context) throws IOException {
-        final String template = name + ".mustache";
-        final Mustache engine = (new DefaultMustacheFactory()).compile(template);
-        final PrintWriter output = new PrintWriter(new FileWriter("docs/" + name + ".html"));
-        engine.execute(output, context).flush();
+    private void renderAsHtmlPage(
+            final String template,
+            final String page,
+            final Map<String, Object> context
+    ) {
+        try {
+            final Mustache engine = (new DefaultMustacheFactory()).compile(template + ".mustache");
+            final PrintWriter output = new PrintWriter(new FileWriter("docs/" + page + ".html"));
+            engine.execute(output, context).flush();
+        } catch (final Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 }
