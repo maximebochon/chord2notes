@@ -4,8 +4,6 @@ import com.github.mustachejava.DefaultMustacheFactory;
 import com.github.mustachejava.Mustache;
 import org.junit.Ignore;
 import org.junit.Test;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.io.FileWriter;
 import java.io.IOException;
@@ -14,14 +12,11 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
-import static java.util.stream.Collectors.toList;
 import static java.util.stream.Collectors.toUnmodifiableList;
 import static org.apache.commons.lang3.math.NumberUtils.INTEGER_ONE;
 
 @Ignore("Actions à déclencher manuellement")
 public class Actions {
-
-    private static final Logger LOGGER = LoggerFactory.getLogger(Actions.class);
 
     @Test
     public void afficherToutesLesGammesMajeures() throws IOException {
@@ -30,9 +25,7 @@ public class Actions {
                         .filter(a -> Math.abs(a.getDemiTons()) <= INTEGER_ONE)
                         .map(a -> new GammeMajeure(new Note(h, a)))
                 )
-                .collect(toList());
-
-        LOGGER.info("{}", gammes);
+                .collect(toUnmodifiableList());
 
         final String template = "gammes.mustache";
         final Mustache mustache = (new DefaultMustacheFactory()).compile(template);
