@@ -36,26 +36,17 @@
         tr td:first-child {
             font-weight: 600;
         }
-        tr.MAJEUR td {
-            background-color: hsl(200, 73%, 70%);
+        tr.MAJEUR_SEPT {
+            background-color: hsl(200, 73%, calc(70% + 0*(90% - 70%)/(4 - 1)));
         }
-        tr.MINEUR td {
-            background-color: hsl(200, 73%, 80%);
+        tr.SEPT {
+            background-color: hsl(200, 73%, calc(70% + 1*(90% - 70%)/(4 - 1)));
         }
-        tr.DIMINUÉ td {
-            background-color: hsl(200, 73%, 90%);
+        tr.MINEUR_SEPT {
+            background-color: hsl(200, 73%, calc(70% + 2*(90% - 70%)/(4 - 1)));
         }
-        tr.MAJEUR_SEPT td {
-            background-color: hsl(200, 73%, 70%);
-        }
-        tr.SEPT td {
-            background-color: hsl(200, 73%, 76.7%);
-        }
-        tr.MINEUR_SEPT td {
-            background-color: hsl(200, 73%, 83.3%);
-        }
-        tr.SEMI_DIMINUÉ td {
-            background-color: hsl(200, 73%, 90%);
+        tr.SEMI_DIMINUÉ {
+            background-color: hsl(200, 73%, calc(70% + 3*(90% - 70%)/(4 - 1)));
         }
         td > span {
             letter-spacing: .2em;

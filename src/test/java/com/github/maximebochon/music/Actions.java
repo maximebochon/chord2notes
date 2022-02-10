@@ -2,6 +2,7 @@ package com.github.maximebochon.music;
 
 import com.github.mustachejava.DefaultMustacheFactory;
 import com.github.mustachejava.Mustache;
+import com.github.mustachejava.util.DecoratedCollection;
 import org.junit.Ignore;
 import org.junit.Test;
 
@@ -9,10 +10,12 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Arrays;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Stream;
 
+import static java.util.stream.Collectors.toCollection;
 import static java.util.stream.Collectors.toUnmodifiableList;
 import static org.apache.commons.lang3.math.NumberUtils.INTEGER_ONE;
 
@@ -50,10 +53,24 @@ public class Actions {
                     .filter(accord -> accord.getNotes().size() == taille)
                     .collect(toUnmodifiableList());
 
-            renderAsHtmlPage(
-                    "accords", "accords" + taille + "sons",
-                    Map.of("accords", accordsNsons, "taille", taille)
+            final DecoratedCollection<String> natures = new DecoratedCollection<>(
+                    accordsNsons.stream()
+                            .map(accord -> accord.getNature().toString())
+                            .collect(toCollection(LinkedHashSet::new))
             );
+
+            final Map<String, Object> context = Map.of(
+                    "accords", accordsNsons,
+                    "taille", taille,
+                    "natures", natures,
+                    "sombre", 70,
+                    "clair", 90
+            );
+
+            final String template = "accords";
+            final String page = template + taille + "sons";
+
+            renderAsHtmlPage(template, page, context);
         });
     }
 
