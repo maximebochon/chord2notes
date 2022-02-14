@@ -37,13 +37,16 @@
             font-weight: 600;
         }
         tr.MAJEUR {
-            background-color: hsl(200, 73%, calc(70% + 0*(90% - 70%)/(3 - 1)));
+            background-color: hsl(200, 73%, calc(70% + 0*(90% - 70%)/(4 - 1)));
         }
         tr.MINEUR {
-            background-color: hsl(200, 73%, calc(70% + 1*(90% - 70%)/(3 - 1)));
+            background-color: hsl(200, 73%, calc(70% + 1*(90% - 70%)/(4 - 1)));
         }
         tr.DIMINUÉ {
-            background-color: hsl(200, 73%, calc(70% + 2*(90% - 70%)/(3 - 1)));
+            background-color: hsl(200, 73%, calc(70% + 2*(90% - 70%)/(4 - 1)));
+        }
+        tr.AUGMENTÉ {
+            background-color: hsl(200, 73%, calc(70% + 3*(90% - 70%)/(4 - 1)));
         }
         td > span {
             letter-spacing: .2em;
@@ -113,6 +116,19 @@
             <ul><li>DO♭</li><li>MI𝄫</li><li>SOL𝄫</li></ul>
         </td>
     </tr>
+    <tr class="AUGMENTÉ">
+        <td>
+            C<sup>♭</sup>
+            <span>
+                
+                +
+                
+            </span>
+        </td>
+        <td>
+            <ul><li>DO♭</li><li>MI♭</li><li>SOL</li></ul>
+        </td>
+    </tr>
     <tr class="MAJEUR">
         <td>
             C<sup></sup>
@@ -150,6 +166,19 @@
         </td>
         <td>
             <ul><li>DO</li><li>MI♭</li><li>SOL♭</li></ul>
+        </td>
+    </tr>
+    <tr class="AUGMENTÉ">
+        <td>
+            C<sup></sup>
+            <span>
+                
+                +
+                
+            </span>
+        </td>
+        <td>
+            <ul><li>DO</li><li>MI</li><li>SOL♯</li></ul>
         </td>
     </tr>
     <tr class="MAJEUR">
@@ -191,6 +220,19 @@
             <ul><li>DO♯</li><li>MI</li><li>SOL</li></ul>
         </td>
     </tr>
+    <tr class="AUGMENTÉ">
+        <td>
+            C<sup>♯</sup>
+            <span>
+                
+                +
+                
+            </span>
+        </td>
+        <td>
+            <ul><li>DO♯</li><li>MI♯</li><li>SOL𝄪</li></ul>
+        </td>
+    </tr>
     <tr class="MAJEUR">
         <td>
             D<sup>♭</sup>
@@ -228,6 +270,19 @@
         </td>
         <td>
             <ul><li>RÉ♭</li><li>FA♭</li><li>LA𝄫</li></ul>
+        </td>
+    </tr>
+    <tr class="AUGMENTÉ">
+        <td>
+            D<sup>♭</sup>
+            <span>
+                
+                +
+                
+            </span>
+        </td>
+        <td>
+            <ul><li>RÉ♭</li><li>FA</li><li>LA</li></ul>
         </td>
     </tr>
     <tr class="MAJEUR">
@@ -269,6 +324,19 @@
             <ul><li>RÉ</li><li>FA</li><li>LA♭</li></ul>
         </td>
     </tr>
+    <tr class="AUGMENTÉ">
+        <td>
+            D<sup></sup>
+            <span>
+                
+                +
+                
+            </span>
+        </td>
+        <td>
+            <ul><li>RÉ</li><li>FA♯</li><li>LA♯</li></ul>
+        </td>
+    </tr>
     <tr class="MAJEUR">
         <td>
             E<sup>♭</sup>
@@ -306,6 +374,19 @@
         </td>
         <td>
             <ul><li>MI♭</li><li>SOL♭</li><li>SI𝄫</li></ul>
+        </td>
+    </tr>
+    <tr class="AUGMENTÉ">
+        <td>
+            E<sup>♭</sup>
+            <span>
+                
+                +
+                
+            </span>
+        </td>
+        <td>
+            <ul><li>MI♭</li><li>SOL</li><li>SI</li></ul>
         </td>
     </tr>
     <tr class="MAJEUR">
@@ -347,6 +428,19 @@
             <ul><li>MI</li><li>SOL</li><li>SI♭</li></ul>
         </td>
     </tr>
+    <tr class="AUGMENTÉ">
+        <td>
+            E<sup></sup>
+            <span>
+                
+                +
+                
+            </span>
+        </td>
+        <td>
+            <ul><li>MI</li><li>SOL♯</li><li>SI♯</li></ul>
+        </td>
+    </tr>
     <tr class="MAJEUR">
         <td>
             F<sup></sup>
@@ -384,6 +478,19 @@
         </td>
         <td>
             <ul><li>FA</li><li>LA♭</li><li>DO♭</li></ul>
+        </td>
+    </tr>
+    <tr class="AUGMENTÉ">
+        <td>
+            F<sup></sup>
+            <span>
+                
+                +
+                
+            </span>
+        </td>
+        <td>
+            <ul><li>FA</li><li>LA</li><li>DO♯</li></ul>
         </td>
     </tr>
     <tr class="MAJEUR">
@@ -425,6 +532,19 @@
             <ul><li>FA♯</li><li>LA</li><li>DO</li></ul>
         </td>
     </tr>
+    <tr class="AUGMENTÉ">
+        <td>
+            F<sup>♯</sup>
+            <span>
+                
+                +
+                
+            </span>
+        </td>
+        <td>
+            <ul><li>FA♯</li><li>LA♯</li><li>DO𝄪</li></ul>
+        </td>
+    </tr>
     <tr class="MAJEUR">
         <td>
             G<sup>♭</sup>
@@ -462,6 +582,19 @@
         </td>
         <td>
             <ul><li>SOL♭</li><li>SI𝄫</li><li>RÉ𝄫</li></ul>
+        </td>
+    </tr>
+    <tr class="AUGMENTÉ">
+        <td>
+            G<sup>♭</sup>
+            <span>
+                
+                +
+                
+            </span>
+        </td>
+        <td>
+            <ul><li>SOL♭</li><li>SI♭</li><li>RÉ</li></ul>
         </td>
     </tr>
     <tr class="MAJEUR">
@@ -503,6 +636,19 @@
             <ul><li>SOL</li><li>SI♭</li><li>RÉ♭</li></ul>
         </td>
     </tr>
+    <tr class="AUGMENTÉ">
+        <td>
+            G<sup></sup>
+            <span>
+                
+                +
+                
+            </span>
+        </td>
+        <td>
+            <ul><li>SOL</li><li>SI</li><li>RÉ♯</li></ul>
+        </td>
+    </tr>
     <tr class="MAJEUR">
         <td>
             A<sup>♭</sup>
@@ -540,6 +686,19 @@
         </td>
         <td>
             <ul><li>LA♭</li><li>DO♭</li><li>MI𝄫</li></ul>
+        </td>
+    </tr>
+    <tr class="AUGMENTÉ">
+        <td>
+            A<sup>♭</sup>
+            <span>
+                
+                +
+                
+            </span>
+        </td>
+        <td>
+            <ul><li>LA♭</li><li>DO</li><li>MI</li></ul>
         </td>
     </tr>
     <tr class="MAJEUR">
@@ -581,6 +740,19 @@
             <ul><li>LA</li><li>DO</li><li>MI♭</li></ul>
         </td>
     </tr>
+    <tr class="AUGMENTÉ">
+        <td>
+            A<sup></sup>
+            <span>
+                
+                +
+                
+            </span>
+        </td>
+        <td>
+            <ul><li>LA</li><li>DO♯</li><li>MI♯</li></ul>
+        </td>
+    </tr>
     <tr class="MAJEUR">
         <td>
             B<sup>♭</sup>
@@ -620,6 +792,19 @@
             <ul><li>SI♭</li><li>RÉ♭</li><li>FA♭</li></ul>
         </td>
     </tr>
+    <tr class="AUGMENTÉ">
+        <td>
+            B<sup>♭</sup>
+            <span>
+                
+                +
+                
+            </span>
+        </td>
+        <td>
+            <ul><li>SI♭</li><li>RÉ</li><li>FA♯</li></ul>
+        </td>
+    </tr>
     <tr class="MAJEUR">
         <td>
             B<sup></sup>
@@ -657,6 +842,19 @@
         </td>
         <td>
             <ul><li>SI</li><li>RÉ</li><li>FA</li></ul>
+        </td>
+    </tr>
+    <tr class="AUGMENTÉ">
+        <td>
+            B<sup></sup>
+            <span>
+                
+                +
+                
+            </span>
+        </td>
+        <td>
+            <ul><li>SI</li><li>RÉ♯</li><li>FA𝄪</li></ul>
         </td>
     </tr>
     </tbody>

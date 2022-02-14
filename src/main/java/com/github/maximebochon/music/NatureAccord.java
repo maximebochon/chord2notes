@@ -3,6 +3,7 @@ package com.github.maximebochon.music;
 import java.util.List;
 
 import static com.github.maximebochon.music.Altération.BÉMOL;
+import static com.github.maximebochon.music.Altération.DIÈSE;
 import static com.github.maximebochon.music.Intervalle.I;
 import static java.util.Arrays.asList;
 
@@ -22,7 +23,10 @@ public enum NatureAccord {
     DIMINUÉ("O", true,
             asList(I(1), I(3, BÉMOL), I(5, BÉMOL))),
     SEMI_DIMINUÉ("Ø", true,
-            asList(I(1), I(3, BÉMOL), I(5, BÉMOL), I(7, BÉMOL)));
+            asList(I(1), I(3, BÉMOL), I(5, BÉMOL), I(7, BÉMOL))),
+
+    AUGMENTÉ("+", false,
+            asList(I(1), I(3), I(5, DIÈSE)));
 
     private final String suffixe;
     private final boolean exposant;
