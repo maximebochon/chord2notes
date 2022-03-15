@@ -1,76 +1,85 @@
 <!DOCTYPE html>
 <html lang="fr-FR">
 <head>
-    <meta charset="utf-8">
-    <meta name="author" content="Maxime BOCHON">
-    <title>Gammes majeures calculées</title>
-    <style type="text/css">
-        @import url('https://fonts.googleapis.com/css2?family=Murecho:wght@200;400;600;900&display=swap');
-        body {
-            margin: 0;
-            padding: 3em;
-            font-family: 'Murecho', sans-serif;
-            background-color: hsl(0, 0%, 97%);
-        }
-        h1 {
-            margin: 0;
-            margin-bottom: .6em;
-            padding: 0;
-            font-weight: 200;
-            letter-spacing: .1rem;
-        }
-        table, tr, th, td {
-            border-collapse: collapse;
-            border-width: 1px;
-            border-color: black;
-            border-style: solid;
-        }
-        th, td {
-            text-align: center;
-            padding: .5em;
-        }
-        th {
-            background-color: white;
-            font-weight: 900;
-        }
-        tr td:first-child {
-            font-weight: 600;
-        }
-        tr td {
-            background-color: lightgreen;
-        }
-        tr.impraticable td {
-            background-color: lightpink;
-        }
-        sup {
-            font-size: 1rem;
-        }
-    </style>
+  <meta charset="utf-8">
+  <meta name="author" content="Maxime BOCHON">
+  <title>Gammes majeures calculées</title>
+  <style type="text/css">
+    @import url('https://fonts.googleapis.com/css2?family=Murecho:wght@200;400;600;900&display=swap');
+
+    body {
+      margin: 0;
+      padding: 3em;
+      font-family: 'Murecho', sans-serif;
+      background-color: hsl(0, 0%, 97%);
+    }
+
+    h1 {
+      margin: 0;
+      margin-bottom: .6em;
+      padding: 0;
+      font-weight: 200;
+      letter-spacing: .1rem;
+    }
+
+    table, tr, th, td {
+      border-collapse: collapse;
+      border-width: 1px;
+      border-color: black;
+      border-style: solid;
+    }
+
+    th, td {
+      text-align: center;
+      padding: .5em;
+    }
+
+    th {
+      background-color: white;
+      font-weight: 900;
+    }
+
+    tr td:first-child {
+      font-weight: 600;
+    }
+
+    tr td {
+      background-color: lightgreen;
+    }
+
+    tr.impraticable td {
+      background-color: lightpink;
+    }
+
+    sup {
+      font-size: 1rem;
+    }
+  </style>
 </head>
 <body>
 <h1>Gammes majeures calculées :</h1>
 <table>
-    <thead>
-    <tr>
-        <th>Tonique</th>
-        <th colspan="7">Notes</th>
-        <th>Praticable</th>
-    </tr>
-    </thead>
-    <tbody>
-    {{#gammes}}
-    <tr class="{{^praticable}}impraticable{{/praticable}}">
-        <td>{{tonique.heptacorde}}<sup>{{tonique.altération.symbole}}</sup></td>
-        {{#notes}}
-        <td>{{heptacorde}}<sup>{{altération.symbole}}</sup></td>
-        {{/notes}}
-        <td>
-            {{#praticable}}oui{{/praticable}}
-            {{^praticable}}non{{/praticable}}
-        </td>
-    </tr>
-    {{/gammes}}
-    </tbody>
+  <thead>
+  <tr>
+    <th>Tonique</th>
+    <th colspan="7">Notes</th>
+    <th>Praticable</th>
+  </tr>
+  </thead>
+  <tbody>
+  {{#gammes}}
+  <tr class="{{^praticable}}impraticable{{/praticable}}">
+    <td>{{tonique.heptacorde}}<sup>{{tonique.altération.symbole}}</sup></td>
+    {{#notes}}
+    <td>{{heptacorde}}<sup>{{altération.symbole}}</sup></td>
+    {{/notes}}
+    <td>
+      {{#praticable}}oui{{/praticable}}
+      {{^praticable}}non{{/praticable}}
+    </td>
+  </tr>
+  {{/gammes}}
+  </tbody>
 </table>
 </body>
 </html>
