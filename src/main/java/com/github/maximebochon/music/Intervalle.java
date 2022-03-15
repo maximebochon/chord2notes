@@ -5,7 +5,6 @@ import static org.apache.commons.lang3.math.NumberUtils.INTEGER_ONE;
 
 public class Intervalle
 {
-
   private final int position;
   private final Altération altération;
 

@@ -7,7 +7,6 @@ import static org.junit.Assert.assertEquals;
 
 public class AltérationTest
 {
-
   @Test
   public void getSymbole()
   {

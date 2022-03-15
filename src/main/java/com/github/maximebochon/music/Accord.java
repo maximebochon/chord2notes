@@ -9,7 +9,6 @@ import static java.util.stream.Collectors.toUnmodifiableList;
 
 public class Accord
 {
-
   private static final Logger LOGGER = LoggerFactory.getLogger(Accord.class);
 
   private final Note tonique;

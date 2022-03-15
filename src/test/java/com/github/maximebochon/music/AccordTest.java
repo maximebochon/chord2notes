@@ -12,7 +12,6 @@ import static org.junit.Assert.assertEquals;
 
 public class AccordTest
 {
-
   private static final Logger LOGGER = LoggerFactory.getLogger(AccordTest.class);
 
   private void testerAccord(final Note tonique, final NatureAccord nature, String expectedAccord)
@@ -115,5 +114,4 @@ public class AccordTest
   {
     testerAccord(new Note(LA), SEMI_DIMINUÉ, "[LA, DO, MIb, SOL]");
   }
-
 }
