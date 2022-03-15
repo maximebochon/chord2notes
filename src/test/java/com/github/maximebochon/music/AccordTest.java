@@ -50,6 +50,11 @@ public class AccordTest {
     }
 
     @Test
+    public void accordDoMineurMajeurSept() {
+        testerAccord(new Note(DO), MINEUR_MAJEUR_SEPT, "[DO, MIb, SOL, SI]");
+    }
+
+    @Test
     public void accordDoDiminué() {
         testerAccord(new Note(DO), DIMINUÉ, "[DO, MIb, SOLb]");
     }
