@@ -19,7 +19,7 @@ public enum NatureAccord {
             asList(I(1), I(3, BÉMOL), I(5))),
     MINEUR_SEPT("−7", false,
             asList(I(1), I(3, BÉMOL), I(5), I(7, BÉMOL))),
-    MINEUR_MAJEUR_SEPT("-Δ", false,
+    MINEUR_MAJEUR_SEPT("−Δ", false,
             asList(I(1), I(3, BÉMOL), I(5), I(7))),
 
     DIMINUÉ("O", true,
