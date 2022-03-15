@@ -7,7 +7,6 @@ import org.junit.Ignore;
 import org.junit.Test;
 
 import java.io.FileWriter;
-import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Arrays;
 import java.util.LinkedHashSet;
@@ -23,7 +22,7 @@ import static org.apache.commons.lang3.math.NumberUtils.INTEGER_ONE;
 public class Actions {
 
     @Test
-    public void afficherToutesLesGammesMajeures() throws IOException {
+    public void afficherToutesLesGammesMajeures() {
         final List<GammeMajeure> gammes = Arrays.stream(Heptacorde.values())
                 .flatMap(heptacorde -> Arrays.stream(Altération.values())
                         .filter(altération -> Math.abs(altération.getDemiTons()) <= INTEGER_ONE)
@@ -35,7 +34,7 @@ public class Actions {
     }
 
     @Test
-    public void afficherCertainsAccords() throws IOException {
+    public void afficherCertainsAccords() {
         final List<Accord> accords = Arrays.stream(Heptacorde.values())
                 .flatMap(heptacorde -> Arrays.stream(Altération.values())
                         .filter(altération -> Math.abs(altération.getDemiTons()) <= INTEGER_ONE)
