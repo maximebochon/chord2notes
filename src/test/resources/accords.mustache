@@ -73,7 +73,7 @@
     {{#accords}}
     <tr class="{{nature}}">
         <td>
-            {{tonique.heptacorde.notation}}<sup>{{tonique.altération.symbole}}</sup>
+            {{tonique.heptacorde.notation}}{{#tonique.altération.symbole}}<sup>{{.}}</sup>{{/tonique.altération.symbole}}
             <span>
                 {{#nature.exposant}}<sup>{{/nature.exposant}}
                 {{nature.suffixe}}
